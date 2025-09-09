@@ -29,4 +29,14 @@ function add(a,b) {
     return a + b; 
 }
 
-export default add;
+// export default add;
+
+function multiply(x){
+  const table = []
+  for(let i = 1 ; i <= 10 ; i++){
+    table.push( i * x)
+  }
+  return table
+}
+
+export default multiply

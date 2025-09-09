@@ -25,5 +25,14 @@
         <p>It export the whole object or function or variable itself by default. we use <code>default</code>
         in code to expoprt.</p>
     </li>
+    <h3>Variables in CommonJs</h3>
+    <p>In nodejs writing module in commonjs the node wrap in the code in below function by default.
+        <code>
+            (function(exports ,require, module, __dirname, __filename){
+
+            })
+        </code>
+        And the variables come from this function.Require io used to fetch the module.__dirname is used to show directory.__filename is used to diplay file name.All these are available in that function. 
+    </p>
 </body>
 </html>

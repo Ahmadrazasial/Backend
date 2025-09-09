@@ -17,6 +17,15 @@ server.listen(port, hostname, () => {
 function divide(a,b) {
     return a / b; 
 }
+
+function multiply(x){
+  const table = []
+  for(let i = 1 ; i <= 10 ; i++){
+    table.push( i * x)
+  }
+  return table
+}
+
 module.exports = {
-    server,divide
+    server,divide,multiply
 }
