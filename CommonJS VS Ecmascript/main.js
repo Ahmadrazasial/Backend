@@ -1,32 +1,27 @@
-const{ server,divide,multiply} = require('./commonjs.js');
+// import { fn ,ln } from "./ecmascript.js";
+// console.log(fn, ln);
 
-server.on("listening",()=>{
-    const addr = server.address();
-console.log(`http://${addr.address}:${addr.port}/`)    
-})
+// import details from "./ecmascript.js"
+// console.log(`${details.object} bowls to ${details.verb} the ${details.subject}`);
 
-console.log(divide(625 ,25))
-console.log(multiply(15),__dirname,__filename)
-// ecmascript exports
-// import { name,last } from "./ecmascript.js";
-// console.log( name , last)
+// import {server , hostname , port }from "./ecmascript.js"
 
-// import obj  from "./ecmascript.js";
-// console.log(obj.a ,obj.b, obj.c)
-
-// import server  from "./ecmascript.js";
-// server.on("listening",()=>{
-// const addr = server.address();
-// console.log(`http://${addr.address}:${addr.port}/`)  
+// server.listen(port,hostname, ()=>{
+//     // console.log("Server is starting");
+//      const addr = server.address();
+//     console.log(`http://${addr.address}:${addr.port}`);
 // })
 
-// import add from "./ecmascript.js";
+// // server.on("listening",()=>{
+// //     const addr = server.address();
+// //     console.log(`http://${addr.address}:${addr.port}`);
+// // })
 
-// console.log(add(5,3))
+// import { multiply } from "./ecmascript.js";
 
+// console.log(multiply(5))
 
-//  import table from "./ecmascript.js";
-//  console.log(table(25))
+const {fn , ln , cricinfo} = require("./commonjs.js");
+console.log(`My name is ${fn} ${ln}`)
 
-
-
+console.log(`${cricinfo.object} bowls to ${cricinfo.verb} the ${cricinfo.subject}`)

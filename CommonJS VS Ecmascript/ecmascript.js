@@ -1,42 +1,32 @@
-export const name = "Ahmad";
-export const last = "Raza";
+//named export
 
+export const fn = "Ahmad";
+export const ln = "Raza";
 
-const obj = {
-    a:"Ahmad",
-    b:"Raza",
-    c:"Sial"
+let cricinfo = {
+  subject : "Batsman",
+  object: "Bowler",
+  verb : "out"
 }
-// export default obj;
+export default cricinfo
 
-import  { createServer }  from "http"
+import http from "http";
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = '3000';
 
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>This server is working via commonjs</h1>');
-});
+const server = http.createServer((req,res) =>{
+  res.statusCode = '200';
+  res.setHeader('Content-type', 'text/html');
+  res.end("<h1>THis is server created using ecmaScript </h1>")
+})
 
-server.listen(port, hostname, () => {
-  console.log( "u will get link");
-});
-// export default server;
 
-function add(a,b) {
-    return a + b; 
-}
-
-// export default add;
-
-function multiply(x){
-  const table = []
+export { server, hostname, port};
+let table = [];
+ export function multiply(a){
   for(let i = 1 ; i <= 10 ; i++){
-    table.push( i * x)
+    table.push ( i * a)
   }
-  return table
-}
-
-export default multiply
+  return table;
+ }
