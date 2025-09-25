@@ -22,6 +22,16 @@
 // console.log(multiply(5))
 
 const {fn , ln , cricinfo} = require("./commonjs.js");
+
 console.log(`My name is ${fn} ${ln}`)
 
 console.log(`${cricinfo.object} bowls to ${cricinfo.verb} the ${cricinfo.subject}`)
+const { server, hostname ,port} = require("./commonjs.js");
+server.listen(port,hostname, ()=>{
+    // const adr = server.address()
+    console.log(`http://${server.address().address}:${server.address().port}`)
+})
+
+const { minus } = require("./commonjs.js")
+
+console.log(minus(5 ,15))
