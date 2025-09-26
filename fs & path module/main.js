@@ -1,62 +1,47 @@
-const { error } = require("console");
 const fs = require("fs");
+// const { console } = require("inspector");
 
-// console.log(fs)
-
-fs.writeFileSync("harry.txt", `<h3>This is index file</h3>`)
-fs.writeFileSync("harry.txt", "This is updated")
-
-// fs.writeFile("index.html","This is header", ()=>{
-//     console.log("created")
+// fs.writeFile("test.txt","This is created using file system in node",()=>{
+//     console.log("File created")
+// })
+// fs.wri("test.txt",(eventType,filename)=>{
+//     console.log(filename)
 // })
 
-// fs.appendFile("index.html",`<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-// </head>
-// <body>
-//     <script type="module" src="ecmascript.js"></script>
-//     <script type="module" src="main.js"></script>
-// </body>
-// </html>`,()=>{
-//     console.log("data added")
-// })
+// fs.open("test.txt", "a", (err, fd) => {
+//     if (err) throw err
+//     fs.write(fd, "changed\n", (err, written, str) => {
+//         if (err) throw err;
 
-// fs.writeFile("index.html",`<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-// </head>
-// <body>
-// <h1>This is some heading</h1>
-// </body>
-// </html>`,()=>{
-//     fs.readFile("index.html" ,(error,data)=>{
-//         console.log(data.toString())
+//         console.log("File changed");
+
+//         fs.readFile("test.txt", "utf8", (err, data) => {
+//             if (err) throw err;
+            
+//             console.log(data)
+            
+//             fs.close(fd, () => {
+//                 console.log("closed");
+//             })
+
+//         })
+
 //     })
 // })
-
-// fs.appendFile("index.html",`<p>This file i created using fs ystem in node</p>`,()=>{
-//     console.log("updated")
+// fs.writeFile("test1.txt","This is created using file system in node",()=>{
+//     console.log("File created")
 // })
-const newContent = `Yes i have added it`;
-fs.readFile("index.html", "utf8" , (err, data)=>{
-    if(err){
-        console.error(err)
-    return
-    }
-    const updated = data.replace("</body>", `${newContent}\n</body>`)
+// fs.readFile("test1.txt","utf-8",(err,data)=>{
+//     if (err) throw err
+//     console.log(data)
+// })
 
-    fs.writeFile("index.html", updated , (err)=>{
-        if(err){
-            console.error(err)
-            return
-        }
-        console.log(err)
-    })
-})
+const open = fs.openSync("test1.txt","a");
+
+fs.appendFileSync(open,"Im using synchronous way");
+console.log("content changed",open);
+
+fs.close(open)
+
+fs.writeFileSync("test1.txt","")
+console.log("content erased")
