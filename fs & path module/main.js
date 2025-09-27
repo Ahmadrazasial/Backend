@@ -44,4 +44,16 @@ console.log("content changed",open);
 fs.close(open)
 
 fs.writeFileSync("test1.txt","")
-console.log("content erased")
+console.log("content erased");
+
+fs.copyFile("tests.txt","test1.txt",(err)=>{
+    if(err) throw err
+    console.log("copied")
+})
+
+console.log(fs)
+
+fs.readFile("test1.txt","latin1",(err,data)=>{
+    console.log(data)
+})
+
