@@ -7,7 +7,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const _filename = fileURLToPath(import.meta.url)
-
+console.log(_filename)
 const _dirname = path.dirname(_filename)
 // let file = "mainpromise.js"
 
