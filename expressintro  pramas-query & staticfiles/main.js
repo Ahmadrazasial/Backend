@@ -16,7 +16,8 @@ const { json } = require('stream/consumers');
 console.log(__dirname)
 
 app.get("/index", (req, res) => {
-  res.sendFile(path.join(__dirname, "new", "index.html"));
+  // res.sendFile(path.join(__dirname, "new", "index.html"));
+  res.sendFile("new/index.html",{root:__dirname});
 })
 
 app.get('/', (req, res) => {
