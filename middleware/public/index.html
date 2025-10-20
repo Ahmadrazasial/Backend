@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        async function test() {
+           const response = await fetch("http://localhost:3000/api/user", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: "Ahmad",
+                    age: 22
+                })
+            })
+            const result = await response.text();
+            console.log(result);
+            return result
+
+        }
+        test();
+    </script>
+</body>
+
+</html>
