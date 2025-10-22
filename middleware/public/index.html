@@ -7,9 +7,18 @@
     <title>Document</title>
 </head>
 
+
+<form action="http://localhost:3000/api/form" method="post">
+<input name="name" value="Ahmad">
+<input name="age" value="22">
+<button type="submit">Send</button>
+</form>
+<hr>
+<hr>
+<button type="submit" id="json">Send</button>
 <body>
     <script>
-
+document.getElementById("json").addEventListener("click",()=>{
         async function test() {
            const response = await fetch("http://localhost:3000/api/user", {
                 method: "POST",
@@ -27,6 +36,8 @@
 
         }
         test();
+
+})
     </script>
 </body>
 
