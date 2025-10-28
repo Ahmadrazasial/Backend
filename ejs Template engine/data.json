@@ -1,0 +1,19 @@
+{
+    "adidas":{
+        "type":"Fashion",
+        "benefits":"Luxury",
+        "Disadvantage":"Expensive"
+
+    }
+    ,"nike":{
+        "type":"wearable",
+        "benefits":"Luxury",
+        "Disadvantage":"Expensive"
+    },
+    "bata":{
+        "type":"Formal",
+        "benefits":"Sleek Design",
+        "Disadvantage":"Low Quality"
+
+    }
+}
