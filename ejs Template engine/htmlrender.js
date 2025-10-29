@@ -1,29 +1,18 @@
 const express = require('express');
 const fs = require('fs/promises');
 const ejs = require('ejs');
+const { delimiter } = require('path');
 const app = express();
 const port = 3000;
 
+let options = {cache:true,rmWhitespace:true, delimiter:'$'}
+app.engine('html',(filepath,data,cb)=>{
+    ejs.renderFile(filepath,data,options,cb);
+});
 
-app.set('view engine' , 'ejs')
+app.set('view engine' , 'html')
 
-
-let menudata = ["namaz","quran","memorization"];
-
-let obj = {
-    "1st":"Home",
-    "2nd":"blog",
-    "3rd":"about"
-}
-
-app.get('/',(req,res)=>{
-    let SiteName = 'TestEngine';
-    let placeholder = "Search now";
-    res.render('index',{name:SiteName,replace:placeholder,menudata:menudata,links:obj});
-})
-
-
-app.get('/blog/:slug',async(req,res)=>{
+/ app.get('/table/:slug',async(req,res)=>{
     let brand = req.params.slug.toLowerCase();
     
     let file = await fs.readFile('data.json','utf-8');
@@ -34,13 +23,13 @@ app.get('/blog/:slug',async(req,res)=>{
         return res.status(404).send("Brand not found");
     }
 
-    res.render('blog',{brand,
+    res.render('table',{brand,
         type:brandData.type,
         benfit:brandData.benefits,
-        dis:brandData.Disadvantage,
-        menudata:menudata,
-        links:obj,
-        name:brand
+        dis:brandData.Disadvantage
+    },(err,html)=>{
+        console.log("Table filled");
+        res.send(html)
     })
 })
 
