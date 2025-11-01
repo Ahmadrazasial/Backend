@@ -2,8 +2,9 @@ const express = require('express');
 const fs = require('fs/promises');
 const ejs = require('ejs');
 const { delimiter } = require('path');
+const path = require('path');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 let options = {cache:true,rmWhitespace:true, delimiter:'$'}
 app.engine('html',(filepath,data,cb)=>{
@@ -11,8 +12,8 @@ app.engine('html',(filepath,data,cb)=>{
 });
 
 app.set('view engine' , 'html')
-
-/ app.get('/table/:slug',async(req,res)=>{
+app.set('views',path.join(__dirname,'html'))
+ app.get('/table/:slug',async(req,res)=>{
     let brand = req.params.slug.toLowerCase();
     
     let file = await fs.readFile('data.json','utf-8');

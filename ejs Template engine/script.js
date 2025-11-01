@@ -6,6 +6,7 @@ const port = 3000;
 
 
 app.set('view engine' , 'ejs')
+app.set('views','views');
 
 
 let menudata = ["namaz","quran","memorization"];
@@ -30,18 +31,22 @@ app.get('/blog/:slug',async(req,res)=>{
     let data = JSON.parse(file);
     let brandData = data[brand]
 
+    
+
     if(!brandData){
         return res.status(404).send("Brand not found");
     }
 
-    res.render('blog',{brand,
-        type:brandData.type,
-        benfit:brandData.benefits,
-        dis:brandData.Disadvantage,
-        menudata:menudata,
-        links:obj,
-        name:brand
-    })
+    res.locals.type = brandData.type;
+    res.locals.benfit = brandData.benefits;
+    res.locals.dis = brandData.Disadvantage
+    res.locals.menudata = menudata;
+    res.locals.links = obj;
+    res.locals.name = brand
+    // res.locals.replace = "Search Now"
+    res.locals.brand = brand
+
+    res.render('blog')
 })
 
 app.listen(port,()=>{
