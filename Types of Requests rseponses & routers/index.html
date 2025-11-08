@@ -12,7 +12,7 @@
 
     <script>
         async function testpost() {
-            let a = await fetch("/d", {method:"delete"});
+            let a = await fetch("/p", {method:"put"});
             let b = await a.text();
             console.log(b)
         }

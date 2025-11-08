@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs/promises');
 const ejs = require('ejs');
-const { delimiter } = require('path');
+// const { delimiter } = require('path');
 const path = require('path');
 const app = express();
 const port = 5000;

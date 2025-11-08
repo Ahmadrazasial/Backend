@@ -17,10 +17,10 @@ app.put("/p",(req,res)=>{
     console.log("Put request sent");
     res.send("Its put request");
 })
-app.delete("/d",(req,res)=>{
-    console.log("Delete request sent");
-    res.send("Its delete request");
-})
+// app.delete("/d",(req,res)=>{
+//     console.log("Delete request sent");
+//     res.send("Its delete request");
+// })
 app.get("/home",(req,res)=>{
     res.sendFile("/index.html",{root:__dirname})
 })
