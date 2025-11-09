@@ -1,0 +1,121 @@
+use("fruitsdb");
+
+db.cre
+
+db.createCollection("smrfruit");
+
+db.smrfruit.insertMany(
+   [
+    {
+        "name": "Mango",
+        "price": 200,
+        "origin": "local"
+    },
+    {
+        "name": "Grapes",
+        "price": 300,
+        "origin": "local/foreign"
+    },
+    {
+        "name": "Watermelon",
+        "price": 150,
+        "origin": "local"
+    },
+    {
+        "name": "Lychee",
+        "price": 400,
+        "origin": "foreign"
+    },
+    {
+        "name": "Peach",
+        "price": 250,
+        "origin": "local/foreign"
+    },
+    {
+        "name": "Apricot",
+        "price": 280,
+        "origin": "local"
+    }
+]
+)
+
+db.createCollection("wntrfruit");
+
+db.wntrfruit.insertMany(
+    [
+    { "name": "Orange (Kinnow)", "price": 180, "origin": "local" },
+    { "name": "Apple", "price": 250, "origin": "local/foreign" },
+    { "name": "Pomegranate (Anar)", "price": 300, "origin": "local" },
+    { "name": "Guava (Amrood)", "price": 200, "origin": "local" },
+    { "name": "Strawberry", "price": 350, "origin": "local" }
+
+
+])
+
+db.createCollection("spgfruit");
+
+db.spgfruit.insert([
+    
+    {
+         "name": "Mulberry (Shehtoot)", 
+         "price": 180, 
+         "origin": "local" 
+        },
+
+    {
+         "name": "Loquat (Lokaat)",
+          "price": 220,
+           "origin": "local" 
+        },
+
+    {
+         "name": "Strawberry",
+          "price": 300,
+           "origin": "local/foreign" 
+        },
+
+    {
+         "name": "Papaya", 
+         "price": 250, 
+         "origin": "local" 
+        },
+
+   
+         {
+         "name": "Apple",
+          "price": 270,
+           "origin": "foreign" 
+        },
+
+   
+         {
+         "name": "Kiwi", 
+         "price": 400, 
+         "origin": "foreign" 
+        }
+        ])
+db.createCollection("fallfruit")
+
+db.fallfruit.insertOne(
+    
+    { "name": "Apple", "price": 250, "origin": "local/foreign" },
+{ "name": "Pomegranate (Anar)", "price": 300, "origin": "local" },
+{ "name": "Banana", "price": 180, "origin": "local" },
+{ "name": "Dates (Khajoor)", "price": 400, "origin": "local/foreign" },
+{ "name": "Pear (Nashpati)", "price": 220, "origin": "local" },
+{ "name": "Fig (Anjeer)", "price": 500, "origin": "foreign" },
+
+)
+
+db.createCollection("dryfruit")
+db.dryfruit.insert(
+    [
+    { "name": "Almonds", "price": 1200, "origin": "local/foreign" },
+    { "name": "Cashews", "price": 1500, "origin": "foreign" },
+    { "name": "Walnuts", "price": 2000, "origin": "local/foreign" },
+    { "name": "Dates (Khajoor)", "price": 400, "origin": "local/foreign" },
+    { "name": "Raisins (Kishmish)", "price": 600, "origin": "local/foreign" },
+    { "name": "Pistachios", "price": 1800, "origin": "foreign" }
+]
+
+)
