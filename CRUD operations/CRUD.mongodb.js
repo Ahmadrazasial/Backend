@@ -178,14 +178,10 @@ use("fruitsdb");
 // }
 // fdo()
 
-// db.smrfruit.find({ origin: 'local' }, { name: 1, _id: 0 }).toArray()
-//     .filter(f => f.name.length > 5).map(f => f.name);
+db.smrfruit.find({ origin: 'local' }, { name: 1, _id: 0 }).toArray()
+    .filter(f => f.name.length > 5).map(f => f.name);
 
 
    
 
 //UPDATE
-
-// db.dryfruit.updateMany({name:"Almonds"},{$set:{price:1000}});
-// db.dryfruit.updateMany({name:"Walnuts",_id:-1},{$set:{price:2500}});
- db.dryfruit.updateMany({name:"Walnuts",_id:-1},{$set:{price:2500}});
