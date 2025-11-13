@@ -188,3 +188,4 @@ use("fruitsdb");
 
 // db.dryfruit.updateMany({name:"Almonds"},{$set:{price:1000}});
 // db.dryfruit.updateMany({name:"Walnuts",_id:-1},{$set:{price:2500}});
+ db.dryfruit.updateMany({name:"Walnuts",_id:-1},{$set:{price:2500}});
