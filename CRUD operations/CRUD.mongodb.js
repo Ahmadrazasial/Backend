@@ -185,3 +185,50 @@ db.smrfruit.find({ origin: 'local' }, { name: 1, _id: 0 }).toArray()
    
 
 //UPDATE
+
+
+
+// db.dryfruit.updateOne({name:"Almonds"},{$set:{price:250}});
+// db.wntrfruit.updateMany({},{$set:{price: 1000}});
+
+// db.dryfruit.updateMany({},{$inc:{price:100}});
+
+// let smr = db.smrfruit.find({origin:"local"},{price:1,name:1}).sort({name:1}).limit(3).toArray()
+// ;
+
+// console.log(smr.price);
+
+
+
+// smr.forEach(doc => {
+//    db.smrfruit.updateOne({_id:doc._id},{$set:{price: doc.price + 50}})
+//    console.log(`${doc.name}:${doc.price}`);
+// });
+
+// let spg = db.spgfruit.find().toArray();
+
+// for (const fruit of spg) {
+//     console.log(fruit.price);
+//     db.spgfruit.updateOne({_id:fruit._id},{$set:{name:fruit.name.toUpperCase()}})
+// }
+
+// db.wntrfruit.updateMany(
+//     {price:{$gt:300}},
+//     [
+//     {$set:{price:{$multiply:["$price",1.5]}}}
+//     ]
+// )
+
+let Obj = db.fallfruit.findOne();
+// console.log(fruitObj[0].name);
+
+for (const key in Obj) {
+    if (( key === "_id")) continue;
+
+    const fruit = Obj[key];
+    console.log(fruit);
+    
+    db.fallfruit.updateOne({_id:Obj._id},
+        {$set: {[`${key}.price`] :fruit.price + 50}}
+    );
+}
