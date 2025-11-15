@@ -219,16 +219,52 @@ db.smrfruit.find({ origin: 'local' }, { name: 1, _id: 0 }).toArray()
 //     ]
 // )
 
-let Obj = db.fallfruit.findOne();
+// let Obj = db.fallfruit.findOne();
 // console.log(fruitObj[0].name);
 
-for (const key in Obj) {
-    if (( key === "_id")) continue;
+// for (const key in Obj) {
+//     if (( key === "_id")) continue;
 
-    const fruit = Obj[key];
-    console.log(fruit);
+//     const fruit = Obj[key];
+//     console.log(fruit);
     
-    db.fallfruit.updateOne({_id:Obj._id},
-        {$set: {[`${key}.price`] :fruit.price + 50}}
-    );
+//     db.fallfruit.updateOne({_id:Obj._id},
+//         {$set: {[`${key}.price`] :fruit.price + 50}}
+//     );
+// }
+
+// db.spgfruit.updateOne({name:{$type:"object"}},[{$set:{name:"mulbury"}}])
+// db.spgfruit.updateOne({origin:"foreign"},[{$set:{name:{$toLower:"$name"}}}])
+
+
+let obj =
+db.fallfruit.findOne();
+// console.log(obj)
+
+for (const key in obj) {
+    
+    console.log(key)
+    if(key === "[object Object]"){
+        
+        db.fallfruit.updateOne({_id:obj._id},{$unset:{[key]:""}})
+    
+    }
+    
+    
 }
+
+// db.dryfruit.updateMany({cost:{$type:"array"}},[{$set:{cost:50}}])
+
+db.dryfruit.updateMany({},[{$set:{cost:{$subtract:["$price",50]}}}])
+
+
+//DELETE
+
+// db.smrfruit.deleteOne({name:"Mango"});
+
+// // db.wntrfruit.deleteOne({price:{$gt:2500}});
+
+// db.dryfruit.deleteMany({origin:"foreign"});
+
+// db.spgfruit.deleteMany({$expr : {$eq:[ "$name",{$toLower:"$name"}]}});
+
