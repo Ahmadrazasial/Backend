@@ -33,3 +33,31 @@ db.wntrfruit.updateMany({},
 }]
 )
 
+db.spgfruit.updateMany({},[{$set: {
+  cost: {$subtract:["$price",50]}
+}}])
+
+// db.spgfruit.deleteOne({$expr:{$eq:["$cost",{$subtract:["$price",50]}]}})
+
+db.dryfruit.deleteOne({$expr:{$eq:["$cost",2150]}});
+
+// db.smrfruit.updateMany({$expr:{$ne:["$name",{$toLower:"$name"}]}},[{$set:{name:{$toLower:"$name"}}}]);
+
+// db.smrfruit.find({name:"Watermelon"})
+
+db.smrfruit.updateMany({name:{$type:"object"}},{$unset:{name:""}});
+
+let fruits =  db.smrfruit.find().toArray()
+
+console.log(fruits)
+
+let index = 0;
+
+let names = ["mango","grapes","Peach","Apricot","Lychee"];
+
+for (const fruit of fruits) {
+ 
+    db.smrfruit.updateMany({_id:fruit._id},{$set:{name:names[index]}})
+
+    index++
+}
