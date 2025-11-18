@@ -61,3 +61,16 @@ for (const fruit of fruits) {
 
     index++
 }
+
+// db.smrfruit.updateMany({$expr:{$ne:["$name",{$toLower:"$name"}]}},[{$set:{name:{$toLower:"$name"}}}]);
+
+// db.spgfruit.updateMany({},{$max:{price:1000}});
+
+// let nbr = Math.floor(Math.random() * (100 - 50) + 50)
+
+// let newprice = nbr + 1000;
+// console.log(newprice);
+
+// db.spgfruit.updateMany({$expr:{$gt:["$price","$cost"]}},{$max:{price:newprice}})
+
+db.spgfruit.updateMany({},[{$set:{price:{$max:[{$add:[{$floor:{$multiply:[{$rand:{}},99]}},1000]},"$price"]}}}])
