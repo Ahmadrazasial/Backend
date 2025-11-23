@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import express from 'express';
 import { Todo , User } from './models/Todo.js'
 
+
+
 let con = await mongoose.connect('mongodb://localhost:27017/todo');
 
 const app = express()
@@ -28,3 +30,6 @@ app.get('/user',(req,res)=>{
 app.listen(port, () => {
     console.log("Server running on port");
 })
+
+let string = "mongodb://localhost:27017/"
+
