@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
     const todo = new Todo({ title: "Server side", desc: "This application is running on backend", isDone: true })
     todo.save()
 
+    
     res.send("Hello World");
 
 
@@ -31,5 +32,6 @@ app.listen(port, () => {
     console.log("Server running on port");
 })
 
-let string = "mongodb://localhost:27017/"
+
+
 
