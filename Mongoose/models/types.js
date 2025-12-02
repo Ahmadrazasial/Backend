@@ -48,7 +48,23 @@ const carSchema = new mongoose.Schema({
     driver:mongoose.ObjectId
 })
 
+const arrSchema = new Schema({
+    name:[String],
+    frnd:[friendSchema],
+})
 
+const nbrSchema = new mongoose.Schema({
+    price:Number
+})
+
+const deci128Schema = new mongoose.Schema({
+    price:mongoose.Schema.Types.Decimal128
+})
+
+const bigSchema = new mongoose.Schema({
+    x:mongoose.Schema.Types.BigInt,
+    y:mongoose.Schema.Types.BigInt,
+})
 
 const file = mongoose.model('file',bufferSchema);
 const mixed = mongoose.model('mix',mixedSchema);
@@ -57,7 +73,11 @@ const union = mongoose.model('union',unionSchema);
 const friend = mongoose.model('friend',friendSchema);
 const obj = mongoose.model('bestfriend',objectSchema);
 const car = mongoose.model('car',carSchema);
-export{date,file,mixed,union,obj,car,friend}
+const arr = mongoose.model('arr',arrSchema);
+const nbr = mongoose.model('nbr',nbrSchema)
+const decimal = mongoose.model('decimal',deci128Schema)
+const bigInt = mongoose.model('bigint',bigSchema);
+export{date,file,mixed,union,obj,car,friend,arr,nbr,decimal,bigInt}
 
 
 
