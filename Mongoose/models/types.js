@@ -1,4 +1,10 @@
 import mongoose, { Schema, Types } from "mongoose";
+import crypto from "crypto";
+import { buffer } from "stream/consumers";
+import { type } from "os";
+
+
+
 
 let dateschema = new mongoose.Schema({
     date:{type:String,required:true},
@@ -48,7 +54,7 @@ const carSchema = new mongoose.Schema({
     driver:mongoose.ObjectId
 })
 
-const arrSchema = new Schema({
+const arrSchema = new mongoose.Schema({
     name:[String],
     frnd:[friendSchema],
 })
@@ -66,6 +72,37 @@ const bigSchema = new mongoose.Schema({
     y:mongoose.Schema.Types.BigInt,
 })
 
+const marksSchema = new Schema({
+    name:{type:String,unique:true},
+    marks:{
+        type:Map,
+        of:Number
+    }
+}) 
+
+const subSchema = new mongoose.Schema({
+    data:{
+        type:nbrSchema,
+        default:()=>({price:Math.floor(Math.random()* 100)})
+    }
+})
+
+const uuidSchema = new mongoose.Schema({
+    _id:{
+        type:Buffer,
+        default:()=> {
+            const uuidString = crypto.randomUUID();
+            return Buffer.from(uuidString.replace(/-/g, ''), 'hex')
+        },
+        options:{ subtype:4}
+    },
+    name:{type:String,unique:true}
+})
+
+const bookSchema = new mongoose.Schema({
+    authorid:{type:Schema.Types.UUID,ref:"uuid"}
+})
+
 const file = mongoose.model('file',bufferSchema);
 const mixed = mongoose.model('mix',mixedSchema);
 const date = mongoose.model('birth',dateschema);
@@ -77,7 +114,12 @@ const arr = mongoose.model('arr',arrSchema);
 const nbr = mongoose.model('nbr',nbrSchema)
 const decimal = mongoose.model('decimal',deci128Schema)
 const bigInt = mongoose.model('bigint',bigSchema);
-export{date,file,mixed,union,obj,car,friend,arr,nbr,decimal,bigInt}
+const marks = mongoose.model('marks',marksSchema)
+const schema = mongoose.model('nested',subSchema);
+const uuid = mongoose.model('uuid',uuidSchema);
+const book = mongoose.model('book',bookSchema);
+export{date,file,mixed,union,obj,car,friend,arr,nbr,decimal,bigInt,marks,schema,uuid,book}
+
 
 
 
