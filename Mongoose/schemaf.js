@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
-import { ids , methods,users ,quser} from "./models/features.js";
+import { ids , methods,users ,quser,indx,virtual} from "./models/features.js";
+
+
 
 
 await mongoose.connect("mongodb://localhost:27017/features")
+
+const db = mongoose.connection.db;
 
 
 // ids
@@ -31,12 +35,17 @@ console.log(await wildtype.similar())
 //     age:32
 // })
 
+//statics
+
 const userfnd = await users.findOne({name:"Mushtaq"})
 
 console.log( await userfnd.adults());
 
+//query helpers
+
 const Mushtaq = await users.findbyName("mushtaq")
 console.log(Mushtaq)
+
 
 const byage = await users.findbyAge(12);
 console.log(byage)
@@ -60,3 +69,32 @@ const ba = await quser.find({
 })
 
 console.log(ba)
+
+//indexed
+
+// const indxin = await indx.create({
+//     veg:"Ladyfinger",
+//     season:"Summer",
+//     price:80.50
+// })
+
+// console.log(await indx.indxdatas.getIndexes());
+
+console.log(await indx.collection.getIndexes())
+console.log(await quser.collection.getIndexes())
+
+// virtual 
+
+// const vrtls = await virtual.create({
+//     vegName:"karela",
+//     cost:48.25,
+// })
+
+const veg = await virtual.findOne({vegName:"karela"});
+
+console.log(veg) 
+ veg.totalCost = 53.075
+
+console.log(veg.price)
+
+await veg.save();

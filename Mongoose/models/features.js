@@ -1,10 +1,15 @@
 import mongoose, { model, Query, Schema } from "mongoose";
 // import { mixed } from "./types";
 
+
+//ids of schema
+
 const idSchema = new mongoose.Schema({
     name:{type:String,unique:true},
     _id:mongoose.Schema.Types.Mixed
 })
+
+//methods of  schema
 
 const insSchema = new mongoose.Schema({
     animal:String,
@@ -23,12 +28,17 @@ const usersSchema = new mongoose.Schema({
     name:{type:String,unique:true},
     age:{type:Schema.Types.Int32}
 })
- usersSchema.methods.checkAge = function(){
+
+
+
+usersSchema.methods.checkAge = function(){
     return this.age >= 18;
 }
 usersSchema.methods.adults = function () {
     return  mongoose.model('usermethod').find({age:{$gte:18}})
 }
+
+//statics of schema
 
 usersSchema.statics.findbyName = function (name) {
     return this.find({name: new RegExp(name,'i')})
@@ -41,6 +51,8 @@ usersSchema.statics.findbyAge = function (age) {
 usersSchema.statics.total = function () {
     return this.countDocuments();
 }
+
+//query helpers of schema
 
 
 const querySchema = new mongoose.Schema({
@@ -60,13 +72,42 @@ query:{
 }
 }) 
 
+//indexes of schema
 
+const indxSchema = new mongoose.Schema({
+    veg:String,
+    season:String,
+    price:{type:Schema.Types.Decimal128}
+})
+
+indxSchema.index({veg:1},{required:true,unique:true});
+
+//virtuals of schema
+
+const vrtSchema = new mongoose.Schema({
+    vegName:{type:String,unique:true},
+    cost:{type:Schema.Types.Decimal128},
+    price:{type:Schema.Types.Decimal128}
+},{toJSON:{virtuals:true},toObject:{virtuals:true}})
+
+vrtSchema.virtual('totalCost').get(function(){
+                const costs = parseFloat(this.cost.toString());
+                return mongoose.Types.Decimal128.fromString( (costs + costs *  10 / 100).toFixed(3));
+            }
+).set(function(v){
+                const total = parseFloat(v.toString());
+                this.price = mongoose.Types.Decimal128.fromString((total * 1.4 ).toFixed(3));
+                this.markModified('price')
+            }
+        )
 
 
 const quser = mongoose.model('quser',querySchema)
 const ids = mongoose.model('id',idSchema);
 const methods = mongoose.model('method',insSchema)
 const users = mongoose.model('usermethod',usersSchema);
+const indx = mongoose.model('indxdata',indxSchema);
 // console.log(idSchema.path('_id'))
+const virtual = mongoose.model('virtual',vrtSchema);
 
-export {ids,methods,users,quser}
+export {ids,methods,users,quser,indx,virtual}
