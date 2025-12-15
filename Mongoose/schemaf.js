@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-import { ids , methods,users ,quser,indx,virtual} from "./models/features.js";
+import { ids , methods,users ,quser,indx,virtual,alias,parenta,Dog,Cat,animals} from "./models/features.js";
+import express from "express";
+const app = express();
+const port = 3000
 
 
 
@@ -34,6 +37,14 @@ console.log(await wildtype.similar())
 //     name:"Mushtaq",
 //     age:32
 // })
+
+const m = await users.find();
+
+m.forEach(e=>{
+    console.log(e.checkAge())
+})
+
+
 
 //statics
 
@@ -95,6 +106,64 @@ const veg = await virtual.findOne({vegName:"karela"});
 console.log(veg) 
  veg.totalCost = 53.075
 
-console.log(veg.price)
+// console.log(veg.price)
 
 await veg.save();
+
+const cuc = await virtual.find({cost:30.75});
+
+for (const veg of cuc) {
+    console.log(veg.vegName)
+}
+
+//Alais
+
+// const aliasAdd = await alias.create({
+//     n:"Ahmad Raza"
+// })
+
+
+const aliasget = await alias.find();
+
+console.log(aliasget[0].name)
+
+// const p = await parenta.create({
+//     c:{
+//         n:"Ahmad Raza"
+//     },
+//     p:{
+//         f:"M Sharif"
+//     }
+// })
+
+await parenta.updateOne({c:{$type:"object"}},{$unset:[{c:""},{p:""}]})
+
+const pget = await parenta.find();
+
+console.log(pget);
+
+app.get('/json',(req,res)=>{
+    res.json(pget)
+})
+
+app.listen(port,()=>{
+    console.log("running")
+})
+
+// await Dog.create({
+//     name:"lusi",
+//     breed:"local food"
+// })
+
+// await Cat.create({
+//     name:"local",
+//     color:"white, broen"
+// })
+
+const dget = await animals.find({});
+
+console.log(dget)
+
+console.log(dget)
+
+console.log(await animals.collection.name)

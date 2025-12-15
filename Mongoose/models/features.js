@@ -101,6 +101,47 @@ vrtSchema.virtual('totalCost').get(function(){
             }
         )
 
+ // aliases
+ 
+ const alisaSchema = new mongoose.Schema({
+    n:{
+        type:String,
+        unique:true,
+        alias:'name'
+    },
+ },{_id:false})
+
+ const Pschema = new mongoose.Schema({
+    c:alisaSchema,
+    p:{
+        f:{
+            type:String,alias:'p.first'
+        }
+    }
+ },{autoIndex:true,timestamps:true,toJSON:{virtuals:true,transform(doc,ret){
+    delete ret._id
+    delete ret.id
+    delete ret.__v
+    ret.createdAt = new Date(ret.createdAt).toLocaleString('en-PK',{timeZone:'Asia/Karachi'})
+    ret.updatedAt = new Date(ret.updatedAt).toLocaleString('en-PK',{timeZone:'Asia/Karachi'})
+    ret.p = ret.p.f.slice(1)
+    ret.c = (ret.c.n).split(" ", 1).toString()
+    return ret
+ }},toObject:{virtuals:true},collection:'parentAlais'}) 
+
+//  Pschema.index({c:1,p:1},{unique:true})
+
+
+ const dscrmSchema = new mongoose.Schema({
+
+name:String
+
+ },{discriminatorKey:"type",collation:'discriminator'})
+
+ const animals = mongoose.model('disanimals',dscrmSchema);
+
+ const Dog = animals.discriminator('Dog',new Schema({breed:String}));
+ const Cat = animals.discriminator('Cat',new Schema({color:String}))
 
 const quser = mongoose.model('quser',querySchema)
 const ids = mongoose.model('id',idSchema);
@@ -109,5 +150,7 @@ const users = mongoose.model('usermethod',usersSchema);
 const indx = mongoose.model('indxdata',indxSchema);
 // console.log(idSchema.path('_id'))
 const virtual = mongoose.model('virtual',vrtSchema);
+const alias = mongoose.model('alias',alisaSchema)
+const parenta = mongoose.model('palais',Pschema)
 
-export {ids,methods,users,quser,indx,virtual}
+export {ids,methods,users,quser,indx,virtual,alias,parenta,Dog,Cat,animals}
