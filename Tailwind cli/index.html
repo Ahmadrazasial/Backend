@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind css using CLI</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cards .card{
+             transition: all 1s ease;
+        }
+        .cards .card:hover{
+            transform: scale(1.1);
+        }
+        
+        .card:hover .card:not(:hover){
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cards container mx-auto w-auto border-1 border-blue-500 flex flex-wrap gap-20 justify-center align-middle  p-32">
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
+            1</div>
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer ">
+            1</div>
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer ">
+            1</div>
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
+            1</div>
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
+            1</div>
+        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500  cursor-pointer">
+            1</div>
+    </div>
+</body>
+
+</html>
