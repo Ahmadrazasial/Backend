@@ -6,36 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind css using CLI</title>
     <link rel="stylesheet" href="./src/output.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
-        .cards .card{
-             transition: all 1s ease;
+        .cards .card {
+            transition: all 1s ease;
         }
-        .cards .card:hover{
+
+        .cards .card:hover {
             transform: scale(1.1);
         }
-        
-        .card:hover .card:not(:hover){
+
+        .card:hover .card:not(:hover) {
             transform: scale(0.9);
         }
+        @layer components {
+    .link {
+        @apply text-[20px] text-green-600 decoration-green-600 cursor-pointer 
+        transition-all duration-1000
+        hover:decoration-2 hover:underline
+    }
+}
     </style>
 </head>
 
 <body>
-    <div class="cards container mx-auto w-auto border-1 border-blue-500 flex flex-wrap gap-20 justify-center align-middle  p-32">
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
-            1</div>
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer ">
-            1</div>
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer ">
-            1</div>
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
-            1</div>
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500 cursor-pointer">
-            1</div>
-        <div class="card w-20 h-20 border-green-500 border-2 text-center leading-19 rounded-[5px] text-2xl text-green-500  cursor-pointer">
-            1</div>
-    </div>
+    <header>
+  <nav class="mx-auto box-border flex flex-col w-auto  justify-between rounded-2xl border-1 border-green-700 pt-3 pr-5 pb-3 pl-5 md:flex-row">
+    <div class="logo font-serif text-3xl font-extrabold text-green-700 cursor-pointer mx-auto md:mx-0 ">ONC</div>
+    <ul class="menu-links flex justify-center gap-4 md:justify-normal">
+      <li class="link  ">Home</li>
+      <li class="link  ">Contacts</li>
+      <li class="link  ">About</li>
+      <li class="link ">Blog</li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="cards container mx-auto flex w-auto flex-wrap justify-center gap-20 border-1 border-blue-500 p-32 align-middle">
+    <div class="card ">1</div>
+    <div class="card ">1</div>
+    <div class="card ">1</div>
+    <div class="card ">1</div>
+    <div class="card ">1</div>
+    <div class="card ">1</div>
+  </div>
+</main>
+<footer></footer>
+
 </body>
 
 </html>

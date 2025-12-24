@@ -1,3 +1,13 @@
-.btn{
-    @apply
+@import "tailwindcss";
+
+@layer components {
+    .link {
+        @apply text-[20px] text-green-600 decoration-green-600 cursor-pointer 
+        transition-all duration-1000
+         hover:decoration-2 hover:underline
+    }
+    .card{
+       @apply h-20 w-20 cursor-pointer rounded-[5px] border-2 border-green-500
+        text-center text-2xl leading-19 text-green-500
+    }
 }
