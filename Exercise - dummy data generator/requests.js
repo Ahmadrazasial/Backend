@@ -19,10 +19,8 @@ const dirname = path.dirname(filename);
 const homefile = path.join(dirname, './public/index.html')
 
 const names = ["Ahmad", "Muhammad", "Shoukat", "Mitho"];
-const salary = [60000, 50000, 48000, 45000];
 const langs = ["Python", "Javascript", "Java", "C++"]
 const city = ["Karachi", "Lahore", "Islamabad", "Bahawalpur"];
-const manager = [true, false, true, false];
 
 
 function random(input) {
@@ -41,17 +39,17 @@ app.get("/", (req, res) => {
 
 
 
-app.post('/p', async (req, res) => {
+app.get('/generate', async (req, res) => {
     const count = await employee.countDocuments();
     if (count === 0) {
 
         for (let i = 0; i <= 9; i++) {
 
             const name = random(names)
-            const salry = random(salary)
+            const salry = Math.floor(Math.random() *(30000 - 22000 + 1) + 22000)
             const spel = random(langs)
             const cit = random(city)
-            const mange = random(manager);
+            const mange = (Math.random() > 0.5)?true:false; 
 
             const generate = await employee.create({
                 name: name,
