@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
-const conn = await mongoose.connect("mongodb://localhost:27017/company");
+const conn = await mongoose.connect("mongodb://127.0.0.1:27017/company");
 
 
 const filename = fileURLToPath(import.meta.url);
