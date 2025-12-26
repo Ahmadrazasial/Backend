@@ -1,0 +1,29 @@
+@layer components{
+    .list{
+        @apply text-blue-500 text-[20px] font-serif font-medium md:text-2xl
+    }
+     .a{
+     @apply relative inline-block font-medium  
+    }
+    .a::after{
+        content: "";
+        @apply absolute left-0 bottom-0 h-[2px] w-0 
+        bg-blue-700
+        transition-all duration-300 ease-out
+    }
+    .a:hover::after{
+        @apply w-full
+    }
+    .card{
+        @apply w-full flex flex-col gap-2 sm:flex-row bg-black mx-auto box-border p-5 gap-3 lg:w-[80%]
+    }
+    .content{
+        @apply h-full border-2 pt-1 pb-1 flex flex-col gap-3  
+    }
+    .title{
+        @apply text-white font-medium sm:text-[16px] md:text-[18px] lg:text-[20px] 
+    }
+    .desc{
+        @apply text-gray-400 text-[16px]
+    }
+}

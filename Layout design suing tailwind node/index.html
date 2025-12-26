@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout using Tailwind</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navber w-auto min-h-20  border-blue-600 box-border  
+        flex flex-col items-center pl-10 pr-10 pt-3 pb-3 md:flex-row justify-between  ">
+            <div class="logo text-blue-800 font-bold text-2xl font-times cursor-pointer md:text-4xl">
+                Sigma Web  Dev
+            </div>
+            <ul class="flex justify-evenly gap-5">
+                <li class="list "><a class="a" href="">Content</a></li>
+                <li class="list "><a class="a" href="">Contact us </a></li>
+                <li class="list "><a class="a" href="">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container w-dvw   mx-auto rounded-[20px] mt-5 p-5 box-border md:w-[90vw]">
+            <div class="card ">
+                <div class="relative w-full  sm:w-[50%] md:w-[45%] lg:w-[45%] xl:w-[25%]">
+                    <img src="image.avif" class="object-cover w-full h-full rounded-2xl " alt="">
+                    <span class=" absolute bg-black text-white right-2 bottom-2 font-medium text-[18px] pl-1 pr-1 rounded-[5px] ">31:20</span>
+                </div>
+                <div class="content ">
+                    <h3 class="title">Installing VS Code & How Websites Work | Sigma Web Development Course - Tutoria #1</h3>
+                    <h4 class="desc">CodeWithHarry . 931K views . 3 months ago</h4>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
