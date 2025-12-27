@@ -7,7 +7,7 @@ entbtn.addEventListener("click", async (e) => {
     async function gendata() {
 
         const cont = await fetch('/generate');
-        const data = await cont.json();
+        const data = await cont.text();
 
         alert(data)
     }
