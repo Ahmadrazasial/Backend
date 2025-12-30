@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer components{
+    .list{}
+    .list:hover{
+        @apply rounded-full bg-gray-900
+    }
+}
