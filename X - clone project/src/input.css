@@ -5,4 +5,12 @@
     .list:hover{
         @apply rounded-full bg-gray-900
     }
+    .undr{
+        @apply relative
+    }
+    .undr::after{
+        content: " ";
+        @apply absolute h-1 w-full bg-blue-800 left-0 -bottom-4
+    }
+    
 }
