@@ -13,9 +13,10 @@
 </head>
 
 <body class="bg-black text-white ">
-    <div class="container flex mx-auto w-full">
-        <div class="one overflow-y-hidden w-[25%] flex justify-end ">
-            <div class="sidebar w-2/3 flex flex-col ">
+    <div class="container flex mx-auto w-full relative">
+        <!-- header -->
+        <div class="one w-[27%] flex justify-end z-0 h-full sticky top-1">
+            <div class="sidebar w-[65%]  flex flex-col  text-white">
                 <div class="logo  p-3 mt-1 w-fit cursor-pointer hover:bg-gray-900 hover:rounded-full">
                     <svg viewBox="0 0 24 24" aria-hidden="true"
                         class="invert w-8 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-18jsvk2 r-rxcuwo r-1777fci r-m327ed r-494qqr">
@@ -27,10 +28,10 @@
                     </svg>
 
                 </div>
-                <div class="options">
-                    <ul class="flex flex-col text-2xl   ">
+                <div class="options box">
+                    <ul class="flex flex-col   text-xl ">
                         <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4"><span
-                                class="material-symbols-outlined text-4xl">
+                                class="material-symbols-outlined ">
                                 home
                             </span>Home</li>
                         <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4"><span
@@ -42,8 +43,7 @@
                                 notifications
                             </span>Notifications</li>
                         <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4">
-                       <span
-                                class="material-symbols-outlined text-4xl">
+                            <span class="material-symbols-outlined text-4xl">
                                 chat
                             </span>
                             Grok
@@ -56,10 +56,12 @@
                                 class="material-symbols-outlined text-4xl">
                                 bookmark
                             </span>Bookmarks</li>
-                        <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4"><span
-                                class="material-symbols-outlined text-4xl">
-                                group
-                            </span>Communities</li>
+                        <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4">
+                            <span class="material-symbols-outlined text-4xl leading">group
+
+                            </span>
+                            Communities
+                        </li>
                         <li class="flex justify-start items-center list w-fit cursor-pointer p-3 box-border gap-4"><span
                                 class="material-symbols-outlined text-4xl">
                                 person
@@ -70,21 +72,339 @@
                             </span>More</li>
                     </ul>
                 </div>
+                <div class="postbtn">
+                    <button
+                        class="bg-white w-[90%] text-black font-bold rounded-full py-4 my-5 text-center box-border cursor-pointer hover:bg-black hover:text-white hover:border transition-all duration-100">Post</button>
+                </div>
             </div>
         </div>
+        <!-- header end -->
         <!-- main starts -->
-        <div class="second w-[40%] border-x border-[#303336]">
-            <div class="topsec w-full  grid grid-cols-2 text-center">
-                <div class="left  py-4  text-lg font-bold border-[#303336] border-b cursor-pointer"><span class="undr">For You</span></div>
-                <div class="right  py-4 text-lg font-bold border-[#303336] border-b text-[#404245] cursor-pointer" >Following</div>
-                
+         <div class="flex w-[73%]">
+        <div class="second w-[54%] border-x border-[#303336]">
+            <div class="topsec w-full  grid grid-cols-2 text-center sticky top-0">
+                <div class="left  py-4  text-lg font-bold border-[#303336] border-b cursor-pointer"><span
+                        class="undr">For You</span></div>
+                <div class="right  py-4 text-lg font-bold border-[#303336] border-b text-[#404245] cursor-pointer">
+                    Following</div>
+
+            </div>
+            <div class="createpost w-full border-b border-[#303336] px-4  gap-3 flex ">
+                <div class="img rounded-full">
+                    <img alt="Sittara Un Nisa | Social Media Marketer" draggable="true"
+                        src="https://pbs.twimg.com/profile_images/1959551363752595456/qtIPWY6s_normal.jpg"
+                        class=" rounded-full my-4">
+                </div>
+                <div class="cnt w-full">
+                    <input type="text" placeholder="What is happening ?" class="w-full outline-none text-xl py-2 my-4">
+                    <div class="comment flex gap-2 items-center text-blue-600 border-b border-[#303336] pb-2">
+                        <span class="material-symbols-outlined text-lg ">
+                            globe_asia
+                        </span>
+                        <span>Everyone can reply</span>
+                    </div>
+                    <div class="react py-3 flex justify-between">
+                        <div class="icons flex gap-4 items-center text-blue-600 cursor-pointer">
+                            <span class="material-symbols-outlined">
+                                imagesmode
+                            </span>
+                            <span class="material-symbols-outlined">
+                                gif_box
+                            </span>
+                            <svg viewBox="0 0 33 32" aria-hidden="true"
+                                class="text-blue-600 fill-blue-600 w-6 r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-z80fyv r-19wmn03"
+                                style="color: rgb(29, 155, 240);">
+                                <g>
+                                    <path
+                                        d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span class="material-symbols-outlined">
+                                sentiment_satisfied
+                            </span>
+                            <span class="material-symbols-outlined">
+                                calendar_clock
+                            </span>
+                            <span class="material-symbols-outlined">
+                                location_on
+                            </span>
+                        </div>
+                        <button
+                            class="bg-[#787A7A] text-black font-bold  px-5 py-3 rounded-full  leading-4 cursor-pointer hover:translate-0.5 transition-all duration-100">Post</button>
+                    </div>
+                </div>
+            </div>
+            <div class="posts">
+                <div class="post flex px-3 gap-3 border-b border-[#303336]">
+                    <div class="prfile">
+                        <img alt="Sittara Un Nisa | Social Media Marketer" draggable="true"
+                            src="https://pbs.twimg.com/profile_images/1959551363752595456/qtIPWY6s_normal.jpg"
+                            class=" rounded-full my-4">
+                    </div>
+                    <div class="cntent w-full py-4">
+                        <div class="user flex justify-between">
+                            <div class="name flex gap-3 cursor-pointer">
+                                <h2 class="font-bold hover:underline">Ahmad Raza</h2>
+                                <h3 class="text-[#404245]">@ahmadraza</h3>
+                                <span class="text-[#404245]"> . 6h</span>
+                            </div>
+                            <div class="more flex items-center">
+                                <svg viewBox="0 0 33 32" aria-hidden="true"
+                                    class="text-blue-600 cursor-pointer w-5 fill-[#404245] hover:bg-[#212224] hover:rounded-2xl   r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-z80fyv r-19wmn03"
+                                    style="color: rgb(29, 155, 240);">
+                                    <g>
+                                        <path
+                                            d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span
+                                    class="material-symbols-outlined text-4xl text-[#404245] box-border px-1 rounded-full hover:bg-[#212224] cursor-pointer ">
+                                    more_horiz
+                                </span>
+                            </div>
+                        </div>
+                        <div class="postdesc font-bold my-1">
+                            Did you Understand ?
+                        </div>
+                        <div class="postimg w-5/6 mt-3">
+                            <img src="afg.jfif" class="rounded-2xl" alt="">
+                        </div>
+                        <div class="reaction w-full py-3 text-[#404245]">
+                            <div class="icons flex gap-4 items-center justify-between">
+                                <div class="icon flex items-center gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        quick_phrases
+                                    </span>
+                                    <span>
+                                        365
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        repeat
+                                    </span>
+                                    <span>
+                                        90.1k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        favorite
+                                    </span>
+                                    <span>
+                                        18k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bar_chart_4_bars
+                                    </span>
+                                    <span>
+                                        142k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bookmark
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        ios_share
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post flex px-3 gap-3 border-b border-[#303336]">
+                    <div class="prfile">
+                        <img alt="Sittara Un Nisa | Social Media Marketer" draggable="true"
+                            src="https://pbs.twimg.com/profile_images/1959551363752595456/qtIPWY6s_normal.jpg"
+                            class=" rounded-full my-4">
+                    </div>
+                    <div class="cntent w-full py-4">
+                        <div class="user flex justify-between">
+                            <div class="name flex gap-3 cursor-pointer">
+                                <h2 class="font-bold hover:underline">Ahmad Raza</h2>
+                                <h3 class="text-[#404245]">@ahmadraza</h3>
+                                <span class="text-[#404245]"> . 6h</span>
+                            </div>
+                            <div class="more flex items-center">
+                                <svg viewBox="0 0 33 32" aria-hidden="true"
+                                    class="text-blue-600 cursor-pointer w-5 fill-[#404245] hover:bg-[#212224] hover:rounded-2xl   r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-z80fyv r-19wmn03"
+                                    style="color: rgb(29, 155, 240);">
+                                    <g>
+                                        <path
+                                            d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span
+                                    class="material-symbols-outlined text-4xl text-[#404245] box-border px-1 rounded-full hover:bg-[#212224] cursor-pointer ">
+                                    more_horiz
+                                </span>
+                            </div>
+                        </div>
+                        <div class="postdesc font-bold my-1">
+                            Did you Understand ?
+                        </div>
+                        <div class="postimg w-5/6 mt-3">
+                            <img src="afg.jfif" class="rounded-2xl" alt="">
+                        </div>
+                        <div class="reaction w-full py-3 text-[#404245]">
+                            <div class="icons flex gap-4 items-center justify-between">
+                                <div class="icon flex items-center gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        quick_phrases
+                                    </span>
+                                    <span>
+                                        365
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        repeat
+                                    </span>
+                                    <span>
+                                        90.1k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        favorite
+                                    </span>
+                                    <span>
+                                        18k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bar_chart_4_bars
+                                    </span>
+                                    <span>
+                                        142k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bookmark
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        ios_share
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post flex px-3 gap-3 border-b border-[#303336]">
+                    <div class="prfile">
+                        <img alt="Sittara Un Nisa | Social Media Marketer" draggable="true"
+                            src="https://pbs.twimg.com/profile_images/1959551363752595456/qtIPWY6s_normal.jpg"
+                            class=" rounded-full my-4">
+                    </div>
+                    <div class="cntent w-full py-4">
+                        <div class="user flex justify-between">
+                            <div class="name flex gap-3 cursor-pointer">
+                                <h2 class="font-bold hover:underline">Ahmad Raza</h2>
+                                <h3 class="text-[#404245]">@ahmadraza</h3>
+                                <span class="text-[#404245]"> . 6h</span>
+                            </div>
+                            <div class="more flex items-center">
+                                <svg viewBox="0 0 33 32" aria-hidden="true"
+                                    class="text-blue-600 cursor-pointer w-5 fill-[#404245] hover:bg-[#212224] hover:rounded-2xl   r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-z80fyv r-19wmn03"
+                                    style="color: rgb(29, 155, 240);">
+                                    <g>
+                                        <path
+                                            d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span
+                                    class="material-symbols-outlined text-4xl text-[#404245] box-border px-1 rounded-full hover:bg-[#212224] cursor-pointer ">
+                                    more_horiz
+                                </span>
+                            </div>
+                        </div>
+                        <div class="postdesc font-bold my-1">
+                            Did you Understand ?
+                        </div>
+                        <div class="postimg w-5/6 mt-3">
+                            <img src="afg.jfif" class="rounded-2xl" alt="">
+                        </div>
+                        <div class="reaction w-full py-3 text-[#404245]">
+                            <div class="icons flex gap-4 items-center justify-between">
+                                <div class="icon flex items-center gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        quick_phrases
+                                    </span>
+                                    <span>
+                                        365
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        repeat
+                                    </span>
+                                    <span>
+                                        90.1k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        favorite
+                                    </span>
+                                    <span>
+                                        18k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bar_chart_4_bars
+                                    </span>
+                                    <span>
+                                        142k
+                                    </span>
+
+                                </div>
+                                <div class="icon flex justify-between gap-1 cursor-pointer">
+                                    <span class="material-symbols-outlined">
+                                        bookmark
+                                    </span>
+                                    <span class="material-symbols-outlined">
+                                        ios_share
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-       <!-- main ends -->
+        <!-- main ends -->
         <!-- Third part -->
-        <div class="third w-[35%] ">
-            <div class="content w-2/3  ml-4 p-3">
-                <div class="search w-full border-[#303336] border flex items-center rounded-full">
+        <div class="third w-[46%] ">
+            <div class="sticky top-0 ">
+            <div class="content w-[70%]  ml-4 p-3 ">
+                <div class="search w-full  border-[#303336] border flex items-center rounded-full sticky top-0 ">
                     <span class="material-symbols-outlined text-lg p-3 ">
                         search
                     </span>
@@ -103,7 +423,7 @@
                             </div>
                             <h2 class="font-bold">#AbuUbaida</h2>
                             <h3 class="text-[#404245] text-sm">5400 posts</h3>
-                           
+
                         </div>
                         <div class="trending px-4 py-2 cursor-pointer hover:bg-[#212224]">
                             <div class="text-[#404245]  flex flex-row justify-between">
@@ -115,7 +435,7 @@
                             </div>
                             <h2 class="font-bold">#AbuUbaida</h2>
                             <h3 class="text-[#404245] text-sm">5400 posts</h3>
-                           
+
                         </div>
                         <div class="trending px-4 py-2 cursor-pointer hover:bg-[#212224]">
                             <div class="text-[#404245]  flex flex-row justify-between">
@@ -127,7 +447,7 @@
                             </div>
                             <h2 class="font-bold">#AbuUbaida</h2>
                             <h3 class="text-[#404245] text-sm">5400 posts</h3>
-                            
+
                         </div>
                         <div class="trending px-4 py-2 cursor-pointer hover:bg-[#212224]">
                             <div class="text-[#404245]  flex flex-row justify-between">
@@ -139,63 +459,68 @@
                             </div>
                             <h2 class="font-bold">#AbuUbaida</h2>
                             <h3 class="text-[#404245] text-sm">5400 posts</h3>
-                        
+
                         </div>
                         <div class="trending px-4 py-2">
 
                             <h2 class=" text-blue-600 cursor-pointer">Show more</h2>
-                    
+
                         </div>
                     </div>
                 </div>
-                <div class="suggestion border border-[#303336] rounded-xl my-3">
+                <div class="suggestion border border-[#303336] rounded-xl my-3 w-auto ">
                     <h1 class="text-2xl font-bold px-4 py-3">Who to follow</h1>
                     <div class="users">
                         <div class="user px-4 py-2 cursor-pointer flex justify-between">
                             <div class="profile flex gap-3">
-                            <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
-                                <img src="" alt="" >
+                                <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="name">
+                                    <h2 class="font-bold hover:underline">Ahmad Raza</h2>
+                                    <h3 class="text-[#404245] text-sm">@ahmadraza</h3>
+                                </div>
                             </div>
-                            <div class="name">
-                            <h2 class="font-bold hover:underline">Ahmad Raza</h2>
-                            <h3 class="text-[#404245] text-sm">@ahmadraza</h3> 
-                            </div>
-                            </div>
-                            <button class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
+                            <button
+                                class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
                         </div>
-                       <div class="user px-4 py-2 cursor-pointer flex justify-between">
+                        <div class="user px-4 py-2 cursor-pointer flex justify-between">
                             <div class="profile flex gap-3">
-                            <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
-                                <img src="" alt="" >
+                                <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="name">
+                                    <h2 class="font-bold hover:underline">Quran Tutor</h2>
+                                    <h3 class="text-[#404245] text-sm">@tutorQ</h3>
+                                </div>
                             </div>
-                            <div class="name">
-                            <h2 class="font-bold hover:underline">Quran Tutor</h2>
-                            <h3 class="text-[#404245] text-sm">@tutorQ</h3> 
-                            </div>
-                            </div>
-                          <button class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
+                            <button
+                                class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
                         </div>
-                         <div class="user px-4 py-2 cursor-pointer flex justify-between">
+                        <div class="user px-4 py-2 cursor-pointer flex justify-between">
                             <div class="profile flex gap-3">
-                            <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
-                                <img src="" alt="" >
+                                <div class="pic w-10 h-10 border-[#303336] rounded-[5px] border">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="name">
+                                    <h2 class="font-bold hover:underline">Tooperstudent008</h2>
+                                    <h3 class="text-[#404245] text-sm">@tooperstudent</h3>
+                                </div>
                             </div>
-                            <div class="name">
-                            <h2 class="font-bold hover:underline">Tooperstudent008</h2>
-                            <h3 class="text-[#404245] text-sm">@tooperstudent</h3> 
-                            </div>
-                            </div>
-                            <button class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
+                            <button
+                                class="bg-white text-black font-bold  px-4 py-1 rounded-full  leading-4 h-8 cursor-pointer hover:translate-0.5 transition-all duration-100">Follow</button>
                         </div>
-                       
-                        
+
+
                         <div class="more px-4 py-2">
 
                             <h2 class=" text-blue-600 cursor-pointer">Show more</h2>
-                    
+
                         </div>
                     </div>
                 </div>
+                </div>
+            </div>
             </div>
         </div>
 </body>
