@@ -12,20 +12,18 @@
         content: " ";
         @apply absolute h-1 w-full bg-blue-800 left-0 -bottom-4
     }
+    .content::-webkit-scrollbar{
+      display: none;
+    }
+    .end{
+        align-self: flex-end;
+    }
     
 }
-@layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar{
-    
-  }
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+@layer utilities{
+    .end{
+        align-self: flex-end;
+    }
+    
 }
