@@ -3,7 +3,7 @@
 @layer components{
     .list{}
     .list:hover{
-        @apply rounded-full bg-gray-900
+        @apply rounded-full bg-[#0d0e0e]
     }
     .undr{
         @apply relative
